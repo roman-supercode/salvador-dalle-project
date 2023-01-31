@@ -18,6 +18,6 @@
 }
 
 .prompt::-webkit-scrollbar-thumb {
-  background-color: #666e75;
+  background-color: rgb(199 210 254);
   border-radius: 5px;
 }

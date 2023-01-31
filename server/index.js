@@ -1,12 +1,12 @@
+import "./config/config.js";
 import express from "express";
-import * as dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./db/connect.js";
 import postRoutes from "./routes/postRoutes.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
 
-dotenv.config();
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
 const startServer = async () => {
     try {
         connectDB(process.env.MONGO_URL);
-        app.listen(9898, () => console.log("Server ist listening on PORT: ", 9898));
+        app.listen(PORT, () => console.log("Server ist listening on PORT: ", PORT));
     } catch (error) {
         console.error(error);
     }
