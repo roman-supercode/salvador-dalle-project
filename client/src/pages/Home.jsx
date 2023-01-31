@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Loader, Card, FormField } from "../components";
 
+
 const RenderCards = ({ data, title }) => {
     if (data?.length > 0) {
         return (
@@ -24,7 +25,7 @@ const Home = () => {
     const fetchPosts = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/post`, {
+            const response = await fetch("https://s-dalle.onrender.com/api/v1/post", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -36,7 +37,7 @@ const Home = () => {
                 setAllPosts(result.data.reverse());
             }
         } catch (error) {
-            alert(error);
+            console.error(error);
         } finally {
             setLoading(false);
         }
