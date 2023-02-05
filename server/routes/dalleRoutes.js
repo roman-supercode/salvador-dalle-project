@@ -10,7 +10,7 @@ const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-// eine eine Instanz der OpenAIApi
+// eine neu Instanz der OpenAIApi
 const openai = new OpenAIApi(configuration);
 
 router.route("/").post(async (req, res) => {

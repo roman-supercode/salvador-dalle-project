@@ -4,6 +4,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 import Post from "../models/post.js";
 
+
 const router = express.Router();
 
 // Configuration
@@ -29,8 +30,13 @@ router.route("/").get(async (_, res) => {
 router.route("/").post(async (req, res) => {
     try {
         const { name, prompt, photo } = req.body;
+        // console.log(photo);
+        // console.log(req.body);
+
+        // Hochladen des Fotos zu Cloudinary
         const photoUrl = await cloudinary.uploader.upload(photo);
 
+        // erstelle einen neuen Post in der Datenbank
         const newPost = await Post.create({
             name,
             prompt,
